@@ -1,0 +1,185 @@
+:root{
+  --light: #fff;
+  --dark: #000;
+}
+
+body{
+  background-color: var(--light);
+}
+
+.dark{
+  --light: #000;
+  --dark: #fff;
+}
+
+.wrapper{
+  margin: auto;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn{
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  background-color: var(--dark);
+  border: 1px solid var(--dark);
+  color: var(--light);
+  transition: all 250ms;
+}
+
+.btn:hover{
+  background-color: var(--light);
+  color: var(--dark);
+}
+
+/* Loader */
+
+.loader_container{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: var(--loader-size);
+  height: var(--loader-size);
+  border: 1px solid #799b79;
+  transform-origin: center;
+  transition: height 0.3s linear 1.6s, width 0.3s linear 1.2s;
+}
+
+.loader_svg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.loader_polygons{
+  opacity:0.5;
+  stroke-width: 0.5;
+  stroke: #799b79;
+  fill: none;
+  transition: stroke 0.3s 0.9s;
+}
+
+.loader_plus {
+  opacity: 1;
+  fill: #FF3131;
+  animation: fade 1s infinite;
+  transition: fill 0.15s;
+}
+
+.loader_innercircle_1{
+  fill: #00FFFF;
+  animation: rotate 4s infinite linear;
+  transform-origin: 53% 52%;
+  transition: fill 0.15s;
+}
+
+.loader_innercircle_2{
+  opacity: 0.8;
+  fill: #00FFFF;
+  animation: rotate 2s infinite linear reverse;
+  transform-origin: 53% 52%;
+  transition: fill 0.15s 0.15s;
+}
+
+.loader_innercircle_3{
+  opacity: 0.8;
+  fill: #00FFFF;
+  animation: rotate 1s infinite linear;
+  transform-origin: 53% 52%;
+  transition: fill 0.15s 0.3s;
+}
+
+.loader_innercircle_4{
+  fill: #00FFFF;
+  animation: rotate 2.5s infinite reverse linear;
+  transform-origin: 53% 52%;
+  transition: fill 0.15s 0.45s;
+}
+
+.loader_innercircle_5{
+  fill: #00FFFF;
+  animation: rotate 2s infinite reverse linear;
+  transform-origin: 53% 52%;
+  transition: fill 0.15s 0.6s;
+}
+
+.loader_innercircle_6{
+  opacity: 0.8;
+  fill: #00FFFF;
+  animation: rotate 1s infinite linear;
+  transform-origin: 53% 52%;
+  transition: fill 0.15s 0.75s;
+}
+
+.loader_pointer{
+  fill: none;
+  stroke-width: 1.5;
+  stroke: #39FF14;
+  transition: stroke 0.15s 0.9s;
+}
+
+/* remove loader */
+
+.loader_container.failure,
+.loader_container.success{
+  transition: height 0.3s linear 1.2s, width 0.3s linear 1.6s;
+  height: 0.1rem;
+  width: 0.1rem;
+}
+
+
+
+/* Change the hover with a failure class */
+
+.loader_container.failure .loader_plus,
+.loader_container.failure .loader_innercircle_1,
+.loader_container.failure .loader_innercircle_2,
+.loader_container.failure .loader_innercircle_3,
+.loader_container.failure .loader_innercircle_4,
+.loader_container.failure .loader_innercircle_5,
+.loader_container.failure .loader_innercircle_6{
+  fill: #FF3131;
+}
+
+.loader_container.failure .loader_pointer,
+.loader_container.failure .loader_polygons{
+  stroke: #FF3131;
+}
+
+/* Change the active with a success class */
+
+.loader_container.success .loader_plus,
+.loader_container.success .loader_innercircle_1,
+.loader_container.success .loader_innercircle_2,
+.loader_container.success .loader_innercircle_3,
+.loader_container.success .loader_innercircle_4,
+.loader_container.success .loader_innercircle_5,
+.loader_container.success .loader_innercircle_6{
+  fill: #39FF14;
+}
+
+.loader_container.success .loader_pointer,
+.loader_container.success .loader_polygons{
+  stroke: #39FF14;
+}
+
+@keyframes fade{
+  0%, 100%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+  }
+}
+
+@keyframes rotate{
+  to{
+    transform: rotate(360deg);
+  }
+}
+
